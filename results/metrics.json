@@ -1,0 +1,150 @@
+{
+ "engine_version": "0.1.0",
+ "seed": 2026,
+ "truth_definition": "payload out of range for >= 10 consecutive minutes (noise-free simulated payload temperature)",
+ "match_tolerance_min": 15,
+ "main": {
+  "n_shipments": 200,
+  "shipment_days": 311.0,
+  "n_true_excursions": 38,
+  "n_detected_events": 52,
+  "event_recall": 1.0,
+  "event_precision": 0.9808,
+  "detections_per_true_excursion": 1.34,
+  "shipments_with_true_excursion": 38,
+  "shipment_recall": 1.0,
+  "shipment_precision": 1.0,
+  "recall_by_cause": {
+   "cold_exposure": {
+    "n": 3,
+    "recall": 1.0
+   },
+   "customs_hold": {
+    "n": 10,
+    "recall": 1.0
+   },
+   "door_open": {
+    "n": 6,
+    "recall": 1.0
+   },
+   "natural": {
+    "n": 4,
+    "recall": 1.0
+   },
+   "pcm_under": {
+    "n": 7,
+    "recall": 1.0
+   },
+   "power_loss": {
+    "n": 4,
+    "recall": 1.0
+   },
+   "tarmac_delay": {
+    "n": 4,
+    "recall": 1.0
+   }
+  },
+  "start_time_error_min_median_abs": 5.9945399379666675,
+  "early_warning": {
+   "warned_fraction": 0.8421,
+   "lead_min_median": 38.82354318970833,
+   "lead_min_p25": 28.966287232504165,
+   "lead_min_p75": 42.029675776237504,
+   "n_warnings": 38,
+   "warning_precision": 0.8684,
+   "false_alarms_per_100_shipment_days": 1.61
+  },
+  "mkt": {
+   "logger_vs_true_mae_c": 0.11783473575760794,
+   "logger_vs_true_p95_c": 0.29000071198596655,
+   "logger_vs_true_max_c": 1.0296237457293387,
+   "float_vs_40digit_max_abs_c": 5.3290705182007514e-14
+  }
+ },
+ "early_warning_linear_trend": {
+  "warned_fraction": 0.8158,
+  "lead_min_median": 38.932170699000004,
+  "lead_min_p25": 30.042465511766665,
+  "lead_min_p75": 45.136252507224995,
+  "n_warnings": 39,
+  "warning_precision": 0.8205,
+  "false_alarms_per_100_shipment_days": 2.25
+ },
+ "start_time_error_min_median_abs_without_clock_correction": 6.5,
+ "early_warning_by_horizon_min": {
+  "15": {
+   "warned_fraction": 0.4737,
+   "lead_min_median": 8.371622542583333,
+   "lead_min_p25": 3.1902718098583334,
+   "lead_min_p75": 9.970699557595832,
+   "n_warnings": 25,
+   "warning_precision": 0.72,
+   "false_alarms_per_100_shipment_days": 2.25
+  },
+  "30": {
+   "warned_fraction": 0.6842,
+   "lead_min_median": 22.832252444758332,
+   "lead_min_p25": 14.472591660420832,
+   "lead_min_p75": 30.9467233695125,
+   "n_warnings": 30,
+   "warning_precision": 0.9,
+   "false_alarms_per_100_shipment_days": 0.96
+  },
+  "60": {
+   "warned_fraction": 0.7895,
+   "lead_min_median": 49.556027149675,
+   "lead_min_p25": 33.29070182245833,
+   "lead_min_p75": 60.350353030579164,
+   "n_warnings": 42,
+   "warning_precision": 0.7381,
+   "false_alarms_per_100_shipment_days": 3.54
+  }
+ },
+ "logger_interval_sweep": {
+  "15min": {
+   "n_shipments": 100,
+   "n_true_excursions": 21,
+   "event_recall": 1.0,
+   "event_precision": 0.9565,
+   "detections_per_true_excursion": 1.05,
+   "early_warning": {
+    "warned_fraction": 0.4286,
+    "lead_min_median": 32.07630832025,
+    "lead_min_p25": 15.948243065933333,
+    "lead_min_p75": 43.53995372825,
+    "n_warnings": 12,
+    "warning_precision": 0.75,
+    "false_alarms_per_100_shipment_days": 2.06
+   }
+  },
+  "30min": {
+   "n_shipments": 100,
+   "n_true_excursions": 27,
+   "event_recall": 0.963,
+   "event_precision": 1.0,
+   "detections_per_true_excursion": 1.08,
+   "early_warning": {
+    "warned_fraction": 0.1111,
+    "lead_min_median": 9.871974290233334,
+    "lead_min_p25": 9.465947515391667,
+    "lead_min_p75": 15.594213115225,
+    "n_warnings": 6,
+    "warning_precision": 0.5,
+    "false_alarms_per_100_shipment_days": 1.95
+   }
+  }
+ },
+ "weather": {
+  "source": "Open-Meteo historical weather API (ERA5 reanalysis), CC BY 4.0",
+  "windows": {
+   "summer": [
+    "2025-07-01",
+    "2025-07-31"
+   ],
+   "winter": [
+    "2025-01-01",
+    "2025-01-31"
+   ]
+  }
+ }
+}

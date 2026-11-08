@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cold-chain-excursion-engine"
+version = "0.1.0"
+description = "Open-source engine for pharma cold-chain monitoring: excursions, MKT, stability budgets, early warning, GDP-style reports."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["pandas>=2.1", "numpy>=1.26", "matplotlib>=3.8", "jinja2>=3.1"]
+
+[project.optional-dependencies]
+mqtt = ["paho-mqtt>=2.0"]
+pdf = ["weasyprint>=60"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+ccee = "ccee.cli:main"
+
+[tool.setuptools]
+packages = ["ccee", "ccee.sim"]
+
+[tool.setuptools.package-data]
+ccee = ["templates/*.j2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:asyncio"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]

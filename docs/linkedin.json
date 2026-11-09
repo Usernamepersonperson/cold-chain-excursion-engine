@@ -1,32 +1,32 @@
 {
- "claim": "Open-source engine flags pharma shipment temperature breaches and warns about 39 minutes ahead.",
- "data_label": "simulated shipments | open data: Open-Meteo/ERA5 weather, Jul 2025 + Jan 2025",
- "stats": [
-  [
-   "39 min",
-   "median early-warning lead time",
-   "accent"
+  "claim": "Open engine flags pharma cold-chain breaches; warned ~39 min ahead on simulated shipments.",
+  "data_label": "simulated shipments | open data: Open-Meteo/ERA5 weather, Jul 2025 + Jan 2025",
+  "stats": [
+    [
+      "39 min",
+      "median early-warning lead time",
+      "accent"
+    ],
+    [
+      "38/38",
+      "simulated excursions detected",
+      "green"
+    ],
+    [
+      "0.12 C",
+      "MKT error vs truth (mean)",
+      "amber"
+    ]
   ],
-  [
-   "38/38",
-   "simulated excursions detected",
-   "green"
+  "limit": "Simulated data only: no real logger or live broker tested, so field accuracy is unknown.",
+  "alt": "Dark chart of a simulated 2-8 C pharma shipment: the payload temperature stays in the green band, an amber marker shows the early warning 39 minutes before it crosses 8 C, and the excursion is shaded red.",
+  "hashtags": [
+    "#IoT",
+    "#ColdChain",
+    "#GDP",
+    "#Pharma",
+    "#Python",
+    "#Basel"
   ],
-  [
-   "0.12 C",
-   "MKT error vs truth (mean)",
-   "amber"
-  ]
- ],
- "limit": "Simulated data only: no real logger or live broker tested, so field accuracy is unknown.",
- "alt": "Dark chart of a simulated 2-8 C pharma shipment: the payload temperature stays in the green band, an amber marker shows the early warning 39 minutes before it crosses 8 C, and the excursion is shaded red.",
- "hashtags": [
-  "#IoT",
-  "#ColdChain",
-  "#GDP",
-  "#Pharma",
-  "#Python",
-  "#Basel"
- ],
- "post": "A pharma shipment that spends three hours on a hot apron can be ruined long before anyone looks at the logger file. I built an open-source engine for that job: it reads cold-chain temperature data, flags excursions per product range (2-8 C, 15-25 C, frozen), tracks the cumulative time outside range, computes mean kinetic temperature, and warns before the range is broken.\n\nTo test it I simulated 200 shipments on real routes such as Basel to Frankfurt to Singapore, using real hourly weather from an open archive. The simulation has insulation, a phase-change pack, door openings, tarmac sun, sensor noise, clock drift and data gaps. Then I injected faults and scored the engine against the true temperature.\n\nMeasured on the simulated fleet: all 38 true excursions were detected, the early warning came a median 39 minutes before the breach (84 percent of excursions warned), and mean kinetic temperature from the noisy logger data was off by 0.12 C. Each shipment gets a report with a hash-chained audit trail.\n\nNot verified: no real logger files or live broker yet, the thermal model is my own, and sampling every 30 minutes cuts the early warning to 11 percent. It makes no claim of regulatory compliance.\n\nIf you work in pharma logistics, which logger export type should I support first?\n\nCode: https://github.com/Usernamepersonperson/cold-chain-excursion-engine"
+  "post": "A pharma shipment that spends three hours on a hot apron can be ruined long before anyone looks at the logger file. I built an open-source engine for that job: it reads cold-chain temperature data, flags excursions per product range (2-8 C, 15-25 C, frozen), tracks the cumulative time outside range, computes mean kinetic temperature, and warns before the range is broken.\n\nTo test it I simulated 200 shipments on real routes such as Basel to Frankfurt to Singapore, using real hourly weather from an open archive. The simulation has insulation, a phase-change pack, door openings, tarmac sun, sensor noise, clock drift and data gaps. Then I injected faults and scored the engine against the true temperature.\n\nMeasured on the simulated fleet: all 38 true excursions were detected, the early warning came a median 39 minutes before the breach (84 percent of excursions warned), and mean kinetic temperature from the noisy logger data was off by 0.12 C. Each shipment gets a report with a hash-chained audit trail.\n\nNot verified: no real logger files or live broker yet, the thermal model is my own, and sampling every 30 minutes cuts the early warning to 11 percent. It makes no claim of regulatory compliance.\n\nIf you work in pharma logistics, which logger export type should I support first?\n\nCode: https://github.com/Usernamepersonperson/cold-chain-excursion-engine"
 }
